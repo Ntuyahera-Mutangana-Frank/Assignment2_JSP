@@ -1,0 +1,16 @@
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+public class AdmissionServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Handle admission form submission
+        
+        // Send confirmation email
+        String email = (String) request.getSession().getAttribute("email");
+        // Use JavaMail API here to send confirmation email
+        
+        // Redirect to admission success page
+        response.sendRedirect("admission-success.jsp");
+    }
+}
