@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Admission Page</title>
+</head>
+<body>
+    <% 
+        String email = (String) session.getAttribute("email");
+        if (email != null) {
+    %>
+        <!-- Your admission form HTML here -->
+        <form action="AdmissionServlet" method="post" enctype="multipart/form-data">
+            Passport Picture: <input type="file" name="passportPicture" accept=".jpg, .png" required><br>
+            Diploma Certificate (PDF only): <input type="file" name="diplomaCertificate" accept=".pdf" required><br>
+            <input type="submit" value="Submit Admission">
+        </form>
+    <%
+        } else {
+            // Redirect to login page if not logged in
+            response.sendRedirect("login.jsp");
+        }
+    %>
+</body>
+</html>
